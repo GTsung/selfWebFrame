@@ -1,0 +1,5 @@
+com\self\base\client\domain\AddressDO$1.class
+com\self\base\client\feigns\AddressService.class
+com\self\base\client\domain\AddressDO$AddressDOBuilder.class
+com\self\base\client\domain\AddressDO.class
+com\self\base\client\domain\AddressDO$AddressDOBuilderImpl.class

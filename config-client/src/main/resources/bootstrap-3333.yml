@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    config:
+      # 分支
+      label: master
+      # 文件后缀
+      profile: dev-3333
+      discovery:
+        enabled: true
+        service-id: config-server
+      name: config-client
+server:
+  port: 3333
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+
+# actuator，用于监控服务，也可动态获取配置信息
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,bus-refresh

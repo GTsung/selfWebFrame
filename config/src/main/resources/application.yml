@@ -1,0 +1,20 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+server:
+  port: 2222
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/GTsung/cloud-properties.git
+          username: GTsung
+          password: .gxc.000
+      discovery:
+        # client使用服务名连接
+        enabled: true
+      enabled: true

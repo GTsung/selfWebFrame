@@ -1,0 +1,22 @@
+server:
+  port: 1111
+spring:
+  application:
+    name: self-server
+eureka:
+  client:
+    # 不自己注册自己
+    register-with-eureka: false
+    # 只维护服务，不检索服务
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka/
+  instance:
+    # 每30秒发送一次心跳，检测服务是否存活
+    lease-renewal-interval-in-seconds: 30
+    # 超过90秒心跳无反应则剔除，剔除的任务是由eureka的定时任务完成的，定时任务每隔60秒执行
+    lease-expiration-duration-in-seconds: 90
+  server:
+    # 自我保护机制，当超过90秒心跳未反应时仍然不会剔除服务
+    # 本地设置为false
+    enable-self-preservation: false
