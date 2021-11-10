@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Constructor;
-import java.util.concurrent.CyclicBarrier;
+import java.util.Hashtable;
 import java.util.stream.IntStream;
 
 /**
@@ -17,11 +17,13 @@ public class AllTest {
 
     public static void main(String[] args) throws Exception {
 //        testThreadLocal();
-        String s = "12123232";
-        System.out.println(s.indexOf("3", 1));
+//        String s = "12123232";
+//        System.out.println(s.indexOf("3", 1));
 
-        CyclicBarrier barrier = new CyclicBarrier(1);
-        while(true);
+//        CyclicBarrier barrier = new CyclicBarrier(1);
+//        ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+        Hashtable<String, Integer> table = new Hashtable<>();
+        table.put(null, 1);
     }
 
     private static void testThreadLocal() {
