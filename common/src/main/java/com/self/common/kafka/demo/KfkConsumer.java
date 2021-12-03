@@ -2,7 +2,7 @@ package com.self.common.kafka.demo;
 
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.TopicPartition;
-import org.apache.kafka.common.serialization.StringSerializer;
+import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -25,8 +25,8 @@ public class KfkConsumer {
     public static void main(String[] args) {
         Properties kfkProp = new Properties();
         kfkProp.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, SERVERS);
-        kfkProp.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        kfkProp.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        kfkProp.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        kfkProp.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         // 消费者组名
         kfkProp.put(ConsumerConfig.GROUP_ID_CONFIG, CONSUMER_GROUP);
         // 自动提交offset及间隔时间

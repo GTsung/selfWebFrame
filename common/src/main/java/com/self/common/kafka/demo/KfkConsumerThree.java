@@ -2,7 +2,7 @@ package com.self.common.kafka.demo;
 
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.TopicPartition;
-import org.apache.kafka.common.serialization.StringSerializer;
+import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.util.*;
 
@@ -27,8 +27,8 @@ public class KfkConsumerThree {
         Properties kfkProp = new Properties();
         kfkProp.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, SERVERS);
         kfkProp.put(ConsumerConfig.GROUP_ID_CONFIG, CONSUMER_GROUP);
-        kfkProp.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        kfkProp.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        kfkProp.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        kfkProp.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         kfkProp.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(kfkProp);

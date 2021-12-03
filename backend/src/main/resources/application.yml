@@ -35,6 +35,35 @@ spring:
     username: root
     password: 123456
     virtual-host: /
+  kafka:
+    bootstrap-servers: 192.168.197.130:9092,192.168.197.130:9093,192.168.197.130:9094
+    # 生产者
+    producer:
+      retries: 3 # 重新发送
+      batch-size: 16384
+      buffer-memory: 33554432
+      acks: 1
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    # 消费者
+    consumer:
+      group-id: group01
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 500
+    listener:
+      # record 表示每一条记录被ListenerConsumer处理后提交
+      # batch 表示每一批poll数据被ListenerConsumer处理后提交
+      # time 表示一批poll数据被ListenerConsumer处理后，过了time的时间后开始提交
+      # count 表示一批poll数据被ListenerConsumer处理后，被处理的record数量大于count数量后开始提交
+      # count_time 表示count | time 满足一条即提交
+      # manual 表示当一批poll数据被处理后，手动调用Acknowledgment.acknowledge()提交
+      # manual_immediate 手动调用Acknowledgment.acknowledge()后立即提交，一般使用这个
+      ack-mode: manual_immediate
+
+
 mybatis:
   type-aliases-package: com.self.backend.domain
   configuration:
