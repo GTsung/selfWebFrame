@@ -14,15 +14,14 @@
     <module>config</module>
     <module>config-client</module>
     <module>base</module>
-      <module>zk</module>
-      <module>dubbo1</module>
-      <module>ios</module>
+    <module>zk</module>
+    <module>dubbo1</module>
+    <module>ios</module>
+    <module>data-parse</module>
   </modules>
   <packaging>pom</packaging>
 
   <name>frame Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <!--父项目指定boot依赖-->
   <parent>
